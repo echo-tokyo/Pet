@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 @mixin paddings() {
 	padding-left: 240px;
@@ -6,14 +6,28 @@
 	padding-top: 120px;
 	padding-bottom: 120px;
 }
+@mixin font($clr: black) {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 15px;
+	line-height: 1.1em;
+	color: $clr;
+}
 
 body, html{
 	height: 100%;
 	background-color: #E8E8E8;
-	p, li{
+	p{
+		@include font(#828282)
+	}
+	li, span{
+		cursor: pointer;
+		@include font()
+	}
+	h1{
 		font-family: 'Open Sans', sans-serif;
-		font-size: 15px;
-		line-height: 1.1em;
+		font-size: 74px;
+		font-weight: 500;
+		line-height: 1.15em;
 	}
 	h2{
 		font-family: 'Open Sans', sans-serif;

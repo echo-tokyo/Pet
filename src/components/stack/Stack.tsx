@@ -42,7 +42,7 @@ const Stack = () => {
 				</div>
 				<div className="stack__item">
 					<img src="../../../public/git-svgrepo-com 1.svg" alt="git" />
-					<p className="stack__item-desc">Git</p>
+					<h3 className="stack__item-desc">Git</h3>
 				</div>
 			</div>
 		</div>

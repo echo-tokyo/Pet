@@ -1,6 +1,7 @@
 import Info from './components/info/Info'
 import Projects from './components/projects/Projects'
 import Stack from './components/stack/Stack'
+import Services from './components/services/Services'
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Info />
       <Projects />
       <Stack />
+      <Services />
     </>
   )
 }

@@ -1,0 +1,27 @@
+@import '../../assets/global';
+.services{
+	hr{
+		margin: 0;
+	}
+	&__text{
+		display: flex;
+		margin: 82px 0px 82px 0px;
+		align-items: center;
+		justify-content: space-between;
+		&-number{
+			font-family: "IBM Plex Mono", monospace;
+			color: #828282;
+		}
+		.services__desc{
+			width: 560px;
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+			&-btn{
+				display: flex;
+				gap: 10px;
+			}
+		}
+	}
+	@include paddings()
+}
