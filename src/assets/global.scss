@@ -9,7 +9,7 @@
 @mixin font($clr: black) {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 15px;
-	line-height: 1.1em;
+	line-height: 1.2em;
 	color: $clr;
 }
 
@@ -19,9 +19,13 @@ body, html{
 	p{
 		@include font(#828282)
 	}
-	li, span{
+	a, span{
 		cursor: pointer;
 		@include font()
+	}
+	footer li{
+		list-style: inside;
+		color: #878787;
 	}
 	h1{
 		font-family: 'Open Sans', sans-serif;
@@ -38,6 +42,14 @@ body, html{
 		font-family: 'Open Sans', sans-serif;
 		font-size: 18px;
 		font-weight: 700;
+	}
+	footer{
+		a{
+			@include font(#878787)
+		}
+		h3{
+			color: white;
+		}
 	}
 }
 a{

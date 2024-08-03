@@ -5,20 +5,30 @@
 	}
 	&__text{
 		display: flex;
-		margin: 82px 0px 82px 0px;
 		align-items: center;
-		justify-content: space-between;
+		gap: 100px;
+		margin: 82px 0px 82px 0px;
 		&-number{
 			font-family: "IBM Plex Mono", monospace;
 			color: #828282;
 		}
-		.services__desc{
+	}
+	&__desc{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		&__info{
 			width: 560px;
 			display: flex;
 			flex-direction: column;
 			gap: 20px;
+			span{
+				font-weight: 700;
+			}
 			&-btn{
 				display: flex;
+				align-items: center;
 				gap: 10px;
 			}
 		}

@@ -2,6 +2,7 @@ import Info from './components/info/Info'
 import Projects from './components/projects/Projects'
 import Stack from './components/stack/Stack'
 import Services from './components/services/Services'
+import Footer from './components/footer/Footer'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Projects />
       <Stack />
       <Services />
+      <Footer />
     </>
   )
 }
