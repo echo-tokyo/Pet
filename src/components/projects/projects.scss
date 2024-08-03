@@ -1,12 +1,13 @@
+@import '../../assets/global';
+
 .wrapper{
-	padding-left: 240px;
-	padding-right: 240px;
-	padding-top: 120px;
-	padding-bottom: 150px;
+	@include paddings()
 }
+
 .items{
 	padding-top: 58px;
 	display: flex;
+	justify-content: space-between;
 }
 .line{
 	display: flex;

@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
+@mixin paddings() {
+	padding-left: 240px;
+	padding-right: 240px;
+	padding-top: 120px;
+	padding-bottom: 120px;
+}
+
 body, html{
 	height: 100%;
 	background-color: #E8E8E8;
