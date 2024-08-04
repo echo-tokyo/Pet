@@ -4,7 +4,7 @@ import Stack from './components/stack/Stack'
 import Services from './components/services/Services'
 import Footer from './components/footer/Footer'
 
-function App() {
+const App:React.FC = () => {
   return (
     <>
       <Info />
