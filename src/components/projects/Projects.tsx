@@ -15,7 +15,7 @@ const Projects:React.FC<IProjectsList> = (props) => {
 				<div className="projects">
 					{projects.map(el => <Project key={el.id} el={el}/>)}
 				</div>
-				<div className="line"><div className="square"></div></div>
+				<div className="line"></div>
 			</div>
 		</div>
 	)

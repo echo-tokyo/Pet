@@ -6,15 +6,19 @@ import Footer from './components/footer/Footer'
 import { IProjects } from './types/types'
 import data from './data/projects'
 import { useState } from 'react'
+import { stack } from './data/projects'
+import { IStack } from './types/types'
 
 const App:React.FC = () => {
   const [projects, setProjects] = useState<IProjects[]>(data)
+  const [techs, setTechs] = useState<IStack[]>(stack)
   console.log(setProjects)
+  console.log(setTechs)
   return (
     <>
       <Info />
       <Projects projects={projects} />
-      <Stack />
+      <Stack techs={techs} />
       <Services />
       <Footer />
     </>

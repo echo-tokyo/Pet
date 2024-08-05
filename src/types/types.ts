@@ -4,3 +4,9 @@ export interface IProjects {
 	desc: string
 	image: string
 }
+
+export interface IStack {
+	id: number
+	name: string
+	image: string
+}
