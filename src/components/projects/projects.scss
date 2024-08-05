@@ -35,8 +35,10 @@
 	&__image{
 		width: 100%;
 		height: 158px;
-		background-color: #F4F4F4;
 		border-radius: 10px;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
 		border: 1px solid black;
 		svg{
 			margin-left: 8px;

@@ -8,6 +8,9 @@ const Info = () => {
 				<li className='header__list-item'><a href="#">Портфолио</a></li>
 				<li className='header__list-item'><a href="#">Стэк</a></li>
 				<li className='header__list-item'><a href="#">Услуги</a></li>
+				{window.location.pathname === '/admin' && (
+				<li className='header__list-item'><a href="#">Добавить элемент</a></li>
+				)}
 			</ul>
 		</header>
 		<div className="container">

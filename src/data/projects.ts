@@ -6,19 +6,19 @@ const projects: IProjects[] = [
 		id: 1,
 		name: 'Cloud Strorage',
 		desc: 'Крутой проект облачное хранилище',
-		image: '/public/cloud storage.png'
+		image: '/public/cloudstorage.png'
 	},
 	{
 		id: 2,
 		name: 'Realty',
 		desc: 'Крутой проект недвижка',
-		image: '/public/интро недвижка.png'
+		image: '/public/интронедвижка.png'
 	},
 	{
 		id: 3,
 		name: 'Friend Auto',
 		desc: 'Крутой проект френдавто',
-		image: '/public/френд авто.png'
+		image: '/public/френдавто.png'
 	},
 	{
 		id: 4,
@@ -30,7 +30,7 @@ const projects: IProjects[] = [
 		id: 5,
 		name: 'Pet',
 		desc: 'Крутой проект pet',
-		image: '/public/Frame 2.png'
+		image: '/public/pet.png'
 	},
 ]
 
