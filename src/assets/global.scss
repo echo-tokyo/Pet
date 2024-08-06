@@ -19,8 +19,9 @@ body, html{
 	p{
 		@include font(#828282)
 	}
-	a, span{
+	a, span, ul p{
 		cursor: pointer;
+		text-decoration: none;
 		@include font()
 	}
 	footer li{
@@ -51,8 +52,4 @@ body, html{
 			color: white;
 		}
 	}
-}
-a{
-	text-decoration: none;
-	color: black;
 }

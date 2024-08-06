@@ -1,15 +1,44 @@
+import React, { useState } from 'react'
 import './info.scss'
+import Modal from '../modal/Modal'
+import { createGlobalStyle } from 'styled-components'
 
-const Info = () => {
+const GlobalStyles = createGlobalStyle`
+	body{
+		overflow: hidden;
+	}
+	header, .container, .wrapper, .stack, .services, .contacts{
+		opacity: 0.2;
+    transition: opacity 0.3s ease-out; 
+	}
+`
+
+const Info: React.FC = () => {
+	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+
+	document.addEventListener('click', (e) => { 
+		if(e.target instanceof HTMLElement) {
+			if (!e.target?.closest('.modal, .modalOpen')) {
+				setIsModalOpen(false);
+			}
+		}
+	})
+	
 	return (
 		<>
+		{isModalOpen && (
+			<>
+			<GlobalStyles />
+			<Modal />
+			</>
+		)}
 		<header className='header'>
 			<ul className='header__list'>
 				<li className='header__list-item'><a href="#">Портфолио</a></li>
 				<li className='header__list-item'><a href="#">Стэк</a></li>
 				<li className='header__list-item'><a href="#">Услуги</a></li>
 				{window.location.pathname === '/admin' && (
-				<li className='header__list-item'><a href="#">Добавить элемент</a></li>
+				<li className='header__list-item'><p className='modalOpen' onClick={():void => setIsModalOpen(!isModalOpen)}>Добавить элемент</p></li>
 				)}
 			</ul>
 		</header>
