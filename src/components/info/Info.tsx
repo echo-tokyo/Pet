@@ -10,6 +10,7 @@ const GlobalStyles = createGlobalStyle`
 	header, .container, .wrapper, .stack, .services, .contacts{
 		opacity: 0.2;
     transition: opacity 0.3s ease-out; 
+		cursor: pointer;
 	}
 `
 
@@ -17,10 +18,8 @@ const Info: React.FC = () => {
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
 	document.addEventListener('click', (e) => { 
-		if(e.target instanceof HTMLElement) {
-			if (!e.target?.closest('.modal, .modalOpen')) {
-				setIsModalOpen(false);
-			}
+		if (e.target instanceof HTMLElement && !e.target?.closest('.modal, .modalOpen')) {
+			setIsModalOpen(false);
 		}
 	})
 	
