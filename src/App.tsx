@@ -8,12 +8,14 @@ import data from './data/projects'
 import { useState } from 'react'
 import { stack } from './data/projects'
 import { IStack } from './types/types'
+import { useAppSelector } from './store/hooks'
 
 const App:React.FC = () => {
   const [projects, setProjects] = useState<IProjects[]>(data)
   const [techs, setTechs] = useState<IStack[]>(stack)
-  console.log(projects)
   console.log(setTechs)
+  const test = useAppSelector((state) => state.projects.projectsList)
+  console.log(test)
   return (
     <>
       <Info setProjects={setProjects} projects={projects}/>
