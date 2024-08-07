@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import './modal.scss'
-import { IProjectData } from '../../types/types'
+import { ISetState } from '../info/Info'
+import { IProjects } from '../../types/types'
 
-const Modal: React.FC = () => {
+const Modal: React.FC<ISetState> = ({setProjects, projects}) => {
 	const [selectedOption, setSelectedOption] = useState<string>('project')
 
 	const getSelectedOption = ():void => {
@@ -19,14 +20,15 @@ const Modal: React.FC = () => {
 		const descInp = document.querySelector('#desc') as HTMLInputElement
 		const imageInp = document.querySelector('#image') as HTMLInputElement
 		const reader = new FileReader()
-		const formData: IProjectData = {
-			name: nameInp?.value,
-			desc: descInp?.value,
+		const formData: IProjects = {
+			id: Date.now(),
+			name: nameInp.value,
+			desc: descInp.value,
 			image: null
 		}
 		reader.onload = (): void => {
 			formData.image = reader.result;
-			console.log(formData)
+			setProjects([...projects, formData])
 		}
 		if (imageInp.files && imageInp.files[0]) {
 			reader.readAsDataURL(imageInp.files[0])
@@ -46,8 +48,8 @@ const Modal: React.FC = () => {
 					{selectedOption === 'project' && (
 						<>
 						<input id='name' type="text" placeholder='Название проекта' required/>
-						<textarea id="desc" placeholder='Описание'></textarea>
-						<input id='image' type="file" placeholder='Обложка проекта' />
+						<textarea id="desc" placeholder='Описание' required></textarea>
+						<input id='image' type="file" placeholder='Обложка проекта' required/>
 						</>
 					)}
 					<input type="submit" name="" id="" value='Далее'/>

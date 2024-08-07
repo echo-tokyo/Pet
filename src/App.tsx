@@ -12,11 +12,11 @@ import { IStack } from './types/types'
 const App:React.FC = () => {
   const [projects, setProjects] = useState<IProjects[]>(data)
   const [techs, setTechs] = useState<IStack[]>(stack)
-  console.log(setProjects)
+  console.log(projects)
   console.log(setTechs)
   return (
     <>
-      <Info />
+      <Info setProjects={setProjects} projects={projects}/>
       <Projects projects={projects} />
       <Stack techs={techs} />
       <Services />
