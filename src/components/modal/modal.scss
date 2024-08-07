@@ -9,4 +9,21 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000;
+  &__items{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    form{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      textarea{
+        resize: none;
+        height: 100px;
+      }
+    }
+  }
 }

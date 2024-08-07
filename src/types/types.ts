@@ -10,3 +10,9 @@ export interface IStack {
 	name: string
 	image: string
 }
+
+export interface IProjectData {
+	name: string
+	desc?: string
+	image?: string | null | ArrayBuffer
+}
