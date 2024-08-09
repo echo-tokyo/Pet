@@ -2,12 +2,6 @@ import React, { useState } from 'react'
 import './info.scss'
 import Modal from '../modal/Modal'
 import { createGlobalStyle } from 'styled-components'
-import { IProjects } from '../../types/types'
-
-export interface ISetState {
-	setProjects: React.Dispatch<React.SetStateAction<IProjects[]>>
-	projects: IProjects[]
-}
 
 const GlobalStyles = createGlobalStyle`
 	body{
@@ -20,7 +14,7 @@ const GlobalStyles = createGlobalStyle`
 	}
 `
 
-const Info: React.FC<ISetState> = ({setProjects, projects}) => {
+const Info: React.FC = () => {
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
 	document.addEventListener('click', (e) => { 
@@ -34,7 +28,7 @@ const Info: React.FC<ISetState> = ({setProjects, projects}) => {
 		{isModalOpen && (
 			<>
 			<GlobalStyles />
-			<Modal setProjects={setProjects} projects={projects}/>
+			<Modal />
 			</>
 		)}
 		<header className='header'>

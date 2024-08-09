@@ -1,13 +1,9 @@
 import './projects.scss'
 import Project from './project/Project'
-import { IProjects } from '../../types/types'
+import { useAppSelector } from '../../store/hooks'
 
-interface IProjectsList {
-	projects: IProjects[]
-}
-
-const Projects:React.FC<IProjectsList> = (props) => {
-	const {projects} = props
+const Projects:React.FC = () => {
+	const projects = useAppSelector(state => state.projects.projectsList)
 	return (
 		<div className="wrapper">
 			<h2>Мои проекты</h2>

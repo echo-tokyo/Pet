@@ -2,7 +2,7 @@ export interface IProjects {
 	id: number
 	name: string
 	desc: string
-	image: string | null | ArrayBuffer
+	image: string 
 }
 
 export interface IStack {

@@ -1,10 +1,13 @@
 import { useState } from 'react'
 import './modal.scss'
-import { ISetState } from '../info/Info'
 import { IProjects } from '../../types/types'
+import { useAppDispatch, useAppSelector } from '../../store/hooks'
+import { setProjectsList } from '../../store/projects/projects.slice'
 
-const Modal: React.FC<ISetState> = ({setProjects, projects}) => {
+const Modal: React.FC = () => {
 	const [selectedOption, setSelectedOption] = useState<string>('project')
+	const dispatch = useAppDispatch()
+	const projectsList = useAppSelector(state => state.projects.projectsList)
 
 	const getSelectedOption = ():void => {
 		const selectedEl = document.querySelector('select') as HTMLSelectElement
@@ -24,11 +27,11 @@ const Modal: React.FC<ISetState> = ({setProjects, projects}) => {
 			id: Date.now(),
 			name: nameInp.value,
 			desc: descInp.value,
-			image: null
+			image: ''
 		}
 		reader.onload = (): void => {
-			formData.image = reader.result;
-			setProjects([...projects, formData])
+			formData.image = reader.result as string
+			dispatch(setProjectsList([...projectsList, formData]))
 		}
 		if (imageInp.files && imageInp.files[0]) {
 			reader.readAsDataURL(imageInp.files[0])
