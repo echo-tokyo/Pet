@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import './modal.scss'
-import { IProjects } from '../../types/types'
+import { IProjects, IStack } from '../../types/types'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { setProjectsList } from '../../store/projects/projects.slice'
+import { setStackList } from '../../store/stack/stack.slice'
 
 const Modal: React.FC = () => {
 	const dispatch = useAppDispatch()
 	const projectsList = useAppSelector(state => state.projects.projectsList)
+	const stackList = useAppSelector(state => state.stack.stackList)
 	const [selectedOption, setSelectedOption] = useState<string>('project')
 
 	const getSelectedOption = ():void => {
@@ -17,10 +19,11 @@ const Modal: React.FC = () => {
 		setSelectedOption(formData.option)
 	}
 
-	const getSelectedData = ():void => {
+	const getProjectsData = ():void => {
 		const nameInp = document.querySelector('#name') as HTMLInputElement
 		const descInp = document.querySelector('#desc') as HTMLInputElement
 		const imageInp = document.querySelector('#image') as HTMLInputElement
+
 		const reader = new FileReader()
 		const formData: IProjects = {
 			id: Date.now(),
@@ -37,13 +40,39 @@ const Modal: React.FC = () => {
 		}
 	}
 
+	const getStackData = ():void => {
+		const nameInp = document.querySelector('#name') as HTMLInputElement
+		const imageInp = document.querySelector('#image') as HTMLInputElement
+
+		const reader = new FileReader()
+		const formData: IStack = {
+			id: Date.now(),
+			name: nameInp.value,
+			image: ''
+		}
+
+		reader.onload = (): void => {
+			formData.image = reader.result as string
+			dispatch(setStackList([...stackList, formData]))
+		}
+		if (imageInp.files && imageInp.files[0]) {
+			reader.readAsDataURL(imageInp.files[0])
+		}
+	}
+
 	return (
 		<div className="modal">
 			<div className="modal__items">
 				<h3 className='modal__items-title'>Что добавить на страницу ?</h3>
 				<form action="" className="modal__items-select" onChange={() => getSelectedOption()} onSubmit={e => {
 					e.preventDefault()
-					getSelectedData()
+					if(selectedOption === 'project'){
+						getProjectsData()
+					} else if (selectedOption === 'stack'){
+						getStackData()
+					} else {
+						console.log('eeee')
+					}
 				}}>
 					<select name="select" id="">
 						<option value="project" className="modal__select-item">Проект</option>
