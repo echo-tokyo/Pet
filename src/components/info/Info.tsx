@@ -11,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
 		opacity: 0.2;
     transition: opacity 0.3s ease-out; 
 		cursor: pointer;
-	}
+	}	
 `
 
 const Info: React.FC = () => {

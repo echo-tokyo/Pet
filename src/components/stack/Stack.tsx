@@ -1,13 +1,9 @@
+import { useAppSelector } from '../../store/hooks'
 import './stack.scss'
-import { IStack } from '../../types/types'
 import StackItem from './stackItem/StackItem'
 
-interface ITechsList {
-	techs: IStack[]
-}
-
-const Stack:React.FC<ITechsList> = (props) => {
-	const {techs} = props
+const Stack:React.FC = () => {
+	const stackList = useAppSelector(state => state.stack.stackList)
 	return (
 		<div className="stack">
 			<div className="stack__text">
@@ -15,7 +11,7 @@ const Stack:React.FC<ITechsList> = (props) => {
 				<p className="stack__text-subtitle">Основной набор инструментов, который помогает мне <br /> в разработке веб-приложений</p>
 			</div>
 			<div className="stack__items">
-				{techs.map(el => <StackItem key={el.id} tech={el}/>)}
+				{stackList.map(el => <StackItem key={el.id} tech={el}/>)}
 			</div>
 		</div>
 	)

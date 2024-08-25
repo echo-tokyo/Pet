@@ -5,9 +5,9 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { setProjectsList } from '../../store/projects/projects.slice'
 
 const Modal: React.FC = () => {
-	const [selectedOption, setSelectedOption] = useState<string>('project')
 	const dispatch = useAppDispatch()
 	const projectsList = useAppSelector(state => state.projects.projectsList)
+	const [selectedOption, setSelectedOption] = useState<string>('project')
 
 	const getSelectedOption = ():void => {
 		const selectedEl = document.querySelector('select') as HTMLSelectElement
@@ -17,8 +17,7 @@ const Modal: React.FC = () => {
 		setSelectedOption(formData.option)
 	}
 
-	const getSelectedData = (e:React.FormEvent<HTMLFormElement>):void => {
-		e.preventDefault()
+	const getSelectedData = ():void => {
 		const nameInp = document.querySelector('#name') as HTMLInputElement
 		const descInp = document.querySelector('#desc') as HTMLInputElement
 		const imageInp = document.querySelector('#image') as HTMLInputElement
@@ -42,7 +41,10 @@ const Modal: React.FC = () => {
 		<div className="modal">
 			<div className="modal__items">
 				<h3 className='modal__items-title'>Что добавить на страницу ?</h3>
-				<form action="" className="modal__items-select" onChange={() => getSelectedOption()} onSubmit={(e) => getSelectedData(e)}>
+				<form action="" className="modal__items-select" onChange={() => getSelectedOption()} onSubmit={e => {
+					e.preventDefault()
+					getSelectedData()
+				}}>
 					<select name="select" id="">
 						<option value="project" className="modal__select-item">Проект</option>
 						<option value="stack" className="modal__select-item">Стэк</option>
@@ -53,6 +55,12 @@ const Modal: React.FC = () => {
 						<input id='name' type="text" placeholder='Название проекта' required/>
 						<textarea id="desc" placeholder='Описание' required></textarea>
 						<input id='image' type="file" placeholder='Обложка проекта' required/>
+						</>
+					)}
+					{selectedOption === 'stack' && (
+						<>
+						<input id='name' type="text" placeholder='Название технологии' required/>
+						<input id='image' type="file" placeholder='Иконка проекта' required/>
 						</>
 					)}
 					<input type="submit" name="" id="" value='Далее'/>
