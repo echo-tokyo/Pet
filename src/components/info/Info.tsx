@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components'
 import ModalAdd from '../modals/modalAdd/ModalAdd'
 import ModalDel from '../modals/modalDel/ModalDel'
 import './info.scss'
+import { useAppSelector } from '../../store/hooks'
 
 const GlobalStyles = createGlobalStyle`
 	body{
@@ -16,6 +17,8 @@ const GlobalStyles = createGlobalStyle`
 `
 
 const Info: React.FC = () => {
+	const projects = useAppSelector(state => state.projects.projectsList)
+	const stack = useAppSelector(state => state.stack.stackList)
 	const [isModalAddOpen, setIsModalAddOpen] = useState<boolean>(false)
 	const [isModalDelOpen, setIsModalDelOpen] = useState<boolean>(false)
 
@@ -42,9 +45,9 @@ const Info: React.FC = () => {
 
 			<header className='header'>
 				<ul className='header__list'>
-					<li className='header__list-item'><a href='#'>Портфолио</a></li>
-					<li className='header__list-item'><a href='#'>Стэк</a></li>
-					<li className='header__list-item'><a href='#'>Услуги</a></li>
+					{projects.length > 0 && (<li className='header__list-item'><a href='#projects'>Портфолио</a></li>)}
+					{stack.length > 0 && (<li className='header__list-item'><a href='#stack'>Стэк</a></li>)}
+					<li className='header__list-item'><a href='#services'>Услуги</a></li>
 					{window.location.pathname === '/admin' && (
 					<>
 						<li className='header__list-item'> 
