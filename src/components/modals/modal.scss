@@ -16,6 +16,9 @@
     justify-content: center;
     height: 100%;
     align-items: center;
+    &-select{
+      width: 250px;
+    }
     form{
       display: flex;
       flex-direction: column;

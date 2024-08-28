@@ -92,7 +92,7 @@ const Modal: React.FC = () => {
 							<input id='image' type='file' placeholder='Иконка проекта' required />
 						</>
 					)}
-					<input type='submit' name='' id='' value='Далее' />
+					<input type='submit' name='' id='' value='Добавить' />
 				</form>
 			</div>
 		</div>
