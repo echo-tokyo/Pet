@@ -1,3 +1,13 @@
+@mixin info(){
+	display: flex;
+	gap: 40px;
+	&__text{
+		display: flex;
+		flex-direction: column;
+		gap: 70px;
+		padding-top: 162px;
+	}
+}
 .header{
 	padding-left: 240px;
 	padding-right: 240px;
@@ -17,30 +27,29 @@
 	padding-bottom: 120px;
 	padding-top: 50px;
 	background-color: white;
-}
-.pic{
-	width: 400px;
-	height: 580px;
-	background-color: #E8E8E8;
-	flex-shrink: 0;
-}
-@mixin info(){
-	display: flex;
-	gap: 40px;
-	&__text{
-		display: flex;
-		flex-direction: column;
-		gap: 70px;
-		padding-top: 162px;
+	.pic{
+		width: 400px;
+		height: 580px;
+		background-color: #E8E8E8;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		flex-shrink: 0;
 	}
-}
-.web{
-	@include info()
-}
-.about{
-	flex-direction: row-reverse;
-	&__text{
-		text-align: right;
+	.web{
+		&__pic{
+			background-image: url('../../../public/0-cover-(4).png');
+		}
+		@include info()
 	}
-	@include info()
+	.about{
+		flex-direction: row-reverse;
+		&__pic{
+			background-image: url('../../../public/photo_5366044222098104403_y.jpg');
+		}
+		&__text{
+			text-align: right;
+		}
+		@include info()
+	}
 }
