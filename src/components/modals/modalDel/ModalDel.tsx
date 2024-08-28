@@ -41,12 +41,14 @@ const ModalDel = () => {
 						<option value='stack' className='modal__select-item'>Стэк</option>
 						<option value='service' className='modal__select-item'>Услуга</option>
 					</select>
-					{selectedOption === 'project' && projects.length > 0 ? (
-						<select className='modal__items-projects'>
-							{projects.map(el => <option value={el.id} key={el.id}>{el.name}</option>)}
-						</select>
-					) : (
-						<p>Список проектов пуст</p>
+					{selectedOption === 'project' && (
+						projects.length > 0 ? (
+							<select className='modal__items-projects'>
+								{projects.map(el => <option value={el.id} key={el.id}>{el.name}</option>)}
+							</select>
+						) : (
+							<p>Список проектов пуст</p>
+						)
 					)}
 					{selectedOption === 'stack' && (
 						<>
