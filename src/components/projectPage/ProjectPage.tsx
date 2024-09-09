@@ -44,7 +44,7 @@ const ProjectPage:React.FC = () => {
 		{isModalOpen && (
 			<>
 				<GlobalStyles />
-				<ModalProj />
+				<ModalProj currentProject={currentProject}/>
 			</>
 		)}
 		<div className="projectPage">

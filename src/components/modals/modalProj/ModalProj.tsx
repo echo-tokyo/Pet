@@ -1,17 +1,38 @@
+import { IProjects } from '../../../types/types'
 import '../modal.scss'
+import { useAppDispatch, useAppSelector } from '../../../store/hooks'
+import { setProjectsList } from '../../../store/projects/projects.slice'
 
-const ModalProj = () => {
+interface IProps  {
+	currentProject: IProjects | undefined
+}
+
+const ModalProj:React.FC<IProps> = ({currentProject}) => {
+	const dispatch = useAppDispatch()
+	const projects = useAppSelector(state => state.projects.projectsList)
+	console.log(projects)
+	
 	const addFile = (e:React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 		const imageInp = document.querySelector('#image') as HTMLInputElement
 		const reader = new FileReader()
 		reader.onload = (): void => {
-			console.log(reader.result)
+			dispatch(setProjectsList(projects.map(el => {
+				if(el.id === currentProject?.id){
+					
+					return {
+						...el,
+						slides: [...(Array.isArray(el.slides) ? el.slides : []), reader.result as string]
+					}
+				}
+				return el
+			})))
 		}
 		if (imageInp.files && imageInp.files[0]) {
 			reader.readAsDataURL(imageInp.files[0])
 		}
 	}
+
 	return (
 		<div className='modal'>
 			<div className='modal__items'>

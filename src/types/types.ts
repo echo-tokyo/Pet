@@ -3,7 +3,7 @@ export interface IProjects {
 	name: string
 	desc: string
 	image: string 
-	slides?: Array<string>
+	slides?:  string[] | undefined
 }
 
 export interface IStack {
