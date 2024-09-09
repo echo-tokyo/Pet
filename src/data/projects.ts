@@ -12,7 +12,8 @@ const projects: IProjects[] = [
 		id: 2,
 		name: 'Realty',
 		desc: 'Крутой проект недвижка',
-		image: '/public/интронедвижка.png'
+		image: '/public/интронедвижка.png',
+		slides: ['../../public/квиз недвижка.png', '../../public/квиз пройден недвижка.png', '../../public/квиз финал недвижка.png']
 	},
 	{
 		id: 3,
@@ -32,6 +33,12 @@ const projects: IProjects[] = [
 		desc: 'Крутой проект pet',
 		image: '/public/pet.png'
 	},
+	{
+		id: 6,
+		name: 'Крутой проект Vortex',
+		desc: 'Крутой проект Pet',
+		image: '/public/Frame4.jpg'
+	}
 ]
 
 export const stack: IStack[] = [

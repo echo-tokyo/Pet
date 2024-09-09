@@ -8,6 +8,13 @@ import { useAppSelector } from './store/hooks'
 const App:React.FC = () => {
   const projects = useAppSelector(state => state.projects.projectsList)
   const stack = useAppSelector(state => state.stack.stackList)
+
+  if(window.location.pathname === '/admin') {
+    localStorage.setItem('isAdmin', 'true')
+  } else if(window.location.pathname === '/') {
+    localStorage.setItem('isAdmin', 'false')
+  }
+  
   return (
     <>
       <Info />

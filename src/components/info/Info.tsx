@@ -1,33 +1,24 @@
 import React, { useState } from 'react'
-import { createGlobalStyle } from 'styled-components'
 import ModalAdd from '../modals/modalAdd/ModalAdd'
 import ModalDel from '../modals/modalDel/ModalDel'
 import './info.scss'
 import { useAppSelector } from '../../store/hooks'
-
-const GlobalStyles = createGlobalStyle`
-	body{
-		overflow: hidden;
-	}
-	header, .container, .wrapper, .stack, .services, .contacts{
-		opacity: 0.2;
-    transition: opacity 0.3s ease-out; 
-		cursor: pointer;
-	}	
-`
+import GlobalStyles from '../../GlobalStyles'
 
 const Info: React.FC = () => {
 	const projects = useAppSelector(state => state.projects.projectsList)
 	const stack = useAppSelector(state => state.stack.stackList)
-	const [isModalAddOpen, setIsModalAddOpen] = useState<boolean>(false)
-	const [isModalDelOpen, setIsModalDelOpen] = useState<boolean>(false)
-
+	
 	document.addEventListener('click', e => {
 		if (e.target instanceof HTMLElement && !e.target?.closest('.modal, .modalOpen')) {
 			setIsModalAddOpen(false)
 			setIsModalDelOpen(false)
 		}
 	})
+
+  const [isModalAddOpen, setIsModalAddOpen] = useState<boolean>(false)
+	const [isModalDelOpen, setIsModalDelOpen] = useState<boolean>(false)
+
 	return (
 		<>
 			{isModalAddOpen && (
@@ -48,7 +39,7 @@ const Info: React.FC = () => {
 					{projects.length > 0 && (<li className='header__list-item'><a href='#projects'>Портфолио</a></li>)}
 					{stack.length > 0 && (<li className='header__list-item'><a href='#stack'>Стэк</a></li>)}
 					<li className='header__list-item'><a href='#services'>Услуги</a></li>
-					{window.location.pathname === '/admin' && (
+					{localStorage.getItem('isAdmin') === 'true' && (
 					<>
 						<li className='header__list-item'> 
 							<p className='modalOpen' onClick={(): void => {

@@ -3,6 +3,7 @@ export interface IProjects {
 	name: string
 	desc: string
 	image: string 
+	slides?: Array<string>
 }
 
 export interface IStack {

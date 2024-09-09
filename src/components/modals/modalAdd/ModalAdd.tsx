@@ -83,7 +83,7 @@ const Modal: React.FC = () => {
 						<>
 							<input id='name' type='text' placeholder='Название проекта' required />
 							<textarea id='desc' placeholder='Описание' required></textarea>
-							<input id='image' type='file' placeholder='Обложка проекта' required />
+							<input id='image' type='file' required />
 						</>
 					)}
 					{selectedOption === 'stack' && (

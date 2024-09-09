@@ -1,0 +1,49 @@
+@import '../../assets/global';
+
+.projectPage{
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	padding-left: 240px;
+	padding-right: 240px;
+	flex-direction: column;
+	h2{
+		margin-top: 30px;
+		text-align: center;
+	}
+	&__info{
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		margin-top: 50px;
+		width: 100%;
+		align-items: center;
+	}
+	&__slider{
+		width: 900px;
+		height: 300px;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		justify-content: center;
+		.projectPage__slide{
+			width: 900px;
+			height: 300px;
+			object-fit: cover;
+			display: none;
+		}
+		.block{
+			display: block;
+			margin: 0 auto;
+			animation: show 1.3s 1;
+		}
+	}
+}
+@keyframes show {
+	0%{
+		opacity: 50%;
+		width: 95%;
+		height: 95%;
+	}
+}
