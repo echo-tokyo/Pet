@@ -19,7 +19,6 @@ const ModalProj:React.FC<IProps> = ({currentProject}) => {
 		reader.onload = (): void => {
 			dispatch(setProjectsList(projects.map(el => {
 				if(el.id === currentProject?.id){
-					
 					return {
 						...el,
 						slides: [...(Array.isArray(el.slides) ? el.slides : []), reader.result as string]

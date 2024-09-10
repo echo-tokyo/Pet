@@ -11,4 +11,12 @@ const GlobalStyles = createGlobalStyle`
 	}	
 `
 
+export const PreviewStyles = createGlobalStyle`
+	.projectPage{
+		opacity: 0.2;
+		transition: opacity 0.3s ease-out; 
+		z-index: 1;
+	}
+`
+
 export default GlobalStyles
