@@ -10,7 +10,6 @@ interface IProps  {
 const ModalProj:React.FC<IProps> = ({currentProject}) => {
 	const dispatch = useAppDispatch()
 	const projects = useAppSelector(state => state.projects.projectsList)
-	console.log(projects)
 	
 	const addFile = (e:React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
