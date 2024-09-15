@@ -34,4 +34,8 @@
       position: relative;
     }
   }
+  &__slides img{
+    cursor: pointer;
+    width: calc(100% / 3);
+  }
 }
