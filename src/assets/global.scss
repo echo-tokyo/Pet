@@ -15,6 +15,7 @@
 
 body, html{
 	height: 100%;
+	position: relative;
 	background-color: #E8E8E8;
 	p{
 		@include font(#828282)
