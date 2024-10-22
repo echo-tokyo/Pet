@@ -7,6 +7,11 @@ import GlobalStyles from '../../GlobalStyles'
 import { PreviewStyles } from '../../GlobalStyles'
 import ModalProj from '../modals/modalProj/ModalProj'
 import ModalProjDel from '../modals/modalProjDel/ModalProjDel'
+import {Swiper, SwiperSlide} from 'swiper/react'
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import 'swiper/css';
+import { Pagination, Navigation } from 'swiper/modules';
 
 const ProjectPage:React.FC = () => {
 	const {id} = useParams()
@@ -37,28 +42,6 @@ const ProjectPage:React.FC = () => {
 		}
 	})
 
-	// слайдер
-	let index = 0
-	const prev = ():void => {
-		const slides = document.querySelectorAll('.projectPage__slide')
-		slides[index].classList.remove('block')
-		index--
-		if(index < 0){
-			index = slides.length - 1
-		}
-		slides[index].classList.add('block')
-	}
-
-	const next = ():void => {
-		const slides = document.querySelectorAll('.projectPage__slide')
-		slides[index].classList.remove('block')
-		index++
-		if(index > slides.length - 1){
-			index = 0
-		}
-		slides[index].classList.add('block')
-	}
-
 	return (
 		<>
 		{isModalOpen && (
@@ -88,24 +71,31 @@ const ProjectPage:React.FC = () => {
 		<div className="projectPage">
 			<h2>Страница проекта: {currentProject?.name}</h2>
 			<div className="projectPage__info">
-				<div className="projectPage__slider" onClick={() => {
+				{/* <div className="projectPage__slider" onClick={() => {
 					if(isModalOpen === false && isModalDelOpen === false){
 						setIsPreview(!isPreview)
 					}
 				}}>
 					<img className='projectPage__slide block' src={currentProject?.image} alt="" />
 					{currentProject?.slides?.map((el, index) => <img className='projectPage__slide' src={el} key={index}/>)}
-				</div>
-				<div className="projectPage__inputs">
-					<input type="button" value='назад' onClick={() => prev()}/>
-					<input type="button" value='вперед' onClick={() => next()}/>
-					{localStorage.getItem('isAdmin') === 'true' && (
+				</div> */}
+				<Swiper 
+				pagination={{type: 'fraction',}}
+        navigation={true}
+        modules={[Pagination, Navigation]}
+        className="mySwiper"
+				onClick={() => (isModalOpen === false && isModalDelOpen === false) && setIsPreview(!isPreview)}>
+					<SwiperSlide><img className='projectPage__slide block' src={currentProject?.image} alt="" /></SwiperSlide>	
+					{currentProject?.slides?.map((el, index) => <SwiperSlide key={index}><img className='projectPage__slide' src={el}/></SwiperSlide>)}
+				</Swiper>
+				{localStorage.getItem('isAdmin') === 'true' && (
+					<div className="projectPage__inputs">
 						<>
 						<input className='modalOpen' type='button' value='добавить слайд' onClick={() => setIsModalOpen(true)}/>
 						<input className='modalOpen' type='button' value='удалить слайд' onClick={() => setIsModalDelOpen(true)}/>
 						</>
-					)}
-				</div>
+					</div>
+				)}
 				<div className="projectPage__desc">
 					<h3>{currentProject?.name}</h3>
 					<p>{currentProject?.desc}</p>
