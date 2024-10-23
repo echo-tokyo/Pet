@@ -12,9 +12,13 @@ const projectsSlice = createSlice({
 	reducers: {
 		setProjectsList: (state, action: PayloadAction<IProjects[]>) => {
 			state.projectsList = action.payload
+		},
+		slideRemove: (state, action) => {
+			const currentEl = state.projectsList.find(el => el.id == action.payload[0].id)
+			currentEl?.slides?.splice(action.payload[1], 1)
 		}
 	}
 })
 
-export const {setProjectsList} = projectsSlice.actions
+export const {setProjectsList, slideRemove} = projectsSlice.actions
 export default projectsSlice.reducer

@@ -4,6 +4,10 @@ import Stack from './components/stack/Stack'
 import Services from './components/services/Services'
 import Footer from './components/footer/Footer'
 import { useAppSelector } from './store/hooks'
+// TODO: удаление слайдов
+// TODO: автоскролл вверх при заходе на страницу проекта
+// TODO: затемнение фона при просмотре слайда проекта
+// TODO: возможность менять обложку
 
 const App:React.FC = () => {
   const projects = useAppSelector(state => state.projects.projectsList)
@@ -11,9 +15,10 @@ const App:React.FC = () => {
 
   if(window.location.pathname === '/admin') {
     localStorage.setItem('isAdmin', 'true')
-  } else if(window.location.pathname === '/') {
-    localStorage.setItem('isAdmin', 'false')
   }
+  // } else if(window.location.pathname === '/') {
+  //   localStorage.setItem('isAdmin', 'false')
+  // }
   
   return (
     <>

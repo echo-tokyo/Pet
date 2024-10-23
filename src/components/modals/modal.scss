@@ -34,8 +34,16 @@
       position: relative;
     }
   }
-  &__slides img{
-    cursor: pointer;
-    width: calc(100% / 3);
+  &__slides{
+    display: flex;
+    gap: 5px;
+    img{
+     cursor: pointer;
+     width: calc((100% - 10px) / 3);
+   }
   }
+}
+
+.selected{
+  outline: 1px solid red;
 }

@@ -35,7 +35,7 @@ const ProjectPage:React.FC = () => {
 		}
 	}, [])
 	
-	// TODO: есть точно такой же кусок кода в '../info/Info.tsx', который закрывает модалку кликом по окну. Желательно засунуть в redux 
+	// FIXME: есть точно такой же кусок кода в '../info/Info.tsx', который закрывает модалку кликом по окну. Желательно засунуть в redux 
 	document.addEventListener('click', e => {
 		if (e.target instanceof HTMLElement && !e.target?.closest('.modal, .modalOpen')) {
 			setIsModalOpen(false)
