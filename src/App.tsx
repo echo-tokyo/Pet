@@ -4,8 +4,6 @@ import Stack from './components/stack/Stack'
 import Services from './components/services/Services'
 import Footer from './components/footer/Footer'
 import { useAppSelector } from './store/hooks'
-// TODO: удаление слайдов
-// TODO: автоскролл вверх при заходе на страницу проекта
 // TODO: затемнение фона при просмотре слайда проекта
 // TODO: возможность менять обложку
 
