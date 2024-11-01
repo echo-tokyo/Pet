@@ -1,32 +1,21 @@
-import Info from './components/info/Info'
-import Projects from './components/projects/Projects'
-import Stack from './components/stack/Stack'
-import Services from './components/services/Services'
-import Footer from './components/footer/Footer'
-import { useAppSelector } from './store/hooks'
 // TODO: затемнение фона при просмотре слайда проекта
 // TODO: возможность менять обложку
 
-const App:React.FC = () => {
-  const projects = useAppSelector(state => state.projects.projectsList)
-  const stack = useAppSelector(state => state.stack.stackList)
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-  if(window.location.pathname === '/admin') {
-    localStorage.setItem('isAdmin', 'true')
-  }
-  // } else if(window.location.pathname === '/') {
-  //   localStorage.setItem('isAdmin', 'false')
-  // }
-  
-  return (
-    <>
-      <Info />
-      {projects.length > 0 && (<Projects />)}
-      {stack.length > 0 && (<Stack />)}
-      <Services />
-      <Footer />
-    </>
-  )
+const App:React.FC = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      navigate('/landing')
+    } else {
+      navigate('/registration')
+    }
+  }, [navigate])
+
+  return null
 }
 
 export default App
