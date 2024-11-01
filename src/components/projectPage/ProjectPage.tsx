@@ -13,11 +13,9 @@ import 'swiper/css/pagination';
 import 'swiper/css';
 import { Pagination, Navigation } from 'swiper/modules';
 import Footer from '../footer/Footer'
-import landingData from '../../data/landing'
 
 const ProjectPage:React.FC = () => {
 	const {id} = useParams()
-	console.log(id)
 
 	const projects = useAppSelector(state => state.landing.landingData.projects)
 	const currentProject:IProjects | undefined = projects.find(el => el.id === Number(id))
@@ -38,8 +36,8 @@ const ProjectPage:React.FC = () => {
 			document.removeEventListener('keydown', handleKeyDown)
 		}
 	}, [])
-	
-	// FIXME: есть точно такой же кусок кода в '../info/Info.tsx', который закрывает модалку кликом по окну. Желательно засунуть в redux 
+
+	// FIXME: есть точно такой же кусок кода в '../info/Info.tsx', который закрывает модалку кликом по окну
 	document.addEventListener('click', e => {
 		if (e.target instanceof HTMLElement && !e.target?.closest('.modal, .modalOpen')) {
 			setIsModalOpen(false)
@@ -78,7 +76,7 @@ const ProjectPage:React.FC = () => {
 		<div className="projectPage">
 			<div className="projectPage__header">
 				<h2>{currentProject?.name}</h2>
-				<Link to={`/landing/${landingData.id}`}><p>Вернуться на главную</p></Link>
+				<Link to={`/landing/${currentProject?.owner}`}><p>Вернуться на главную</p></Link>
 			</div>
 
 			<Swiper slidesPerView={'auto'} spaceBetween={30} pagination={{type: 'fraction',}} navigation={true} modules={[Pagination, Navigation]} className="mySwiper" onClick={() => (isModalOpen === false && isModalDelOpen === false) && setIsPreview(!isPreview)}>

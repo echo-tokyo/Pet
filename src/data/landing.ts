@@ -7,12 +7,14 @@ export const landingData: ILanding = {
 	projects: [
 		{
 			id: 1,
+			owner: 'user',
 			name: 'Cloud Strorage',
 			desc: 'Крутой проект облачное хранилище',
 			image: '/public/cloudstorage.png'
 		},
 		{
 			id: 2,
+			owner: 'user',
 			name: 'Realty',
 			desc: 'Крутой проект недвижка',
 			image: '/public/интронедвижка.png',
@@ -20,24 +22,28 @@ export const landingData: ILanding = {
 		},
 		{
 			id: 3,
+			owner: 'user',
 			name: 'Friend Auto',
 			desc: 'Крутой проект френдавто',
 			image: '/public/френдавто.png'
 		},
 		{
 			id: 4,
+			owner: 'user',
 			name: 'Lorem',
 			desc: 'Крутой проект lorem',
 			image: '/public/визитка.png'
 		},
 		{
 			id: 5,
+			owner: 'user',
 			name: 'Pet',
 			desc: 'Крутой проект pet',
 			image: '/public/pet.png'
 		},
 		{
 			id: 6,
+			owner: 'user',
 			name: 'Крутой проект Vortex',
 			desc: 'Крутой проект Pet',
 			image: '/public/Frame4.jpg'

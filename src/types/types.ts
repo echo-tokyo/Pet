@@ -1,5 +1,6 @@
 export interface IProjects {
 	id: number
+	owner: string
 	name: string
 	desc: string
 	image: string 
