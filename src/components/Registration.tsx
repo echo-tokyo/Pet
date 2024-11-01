@@ -1,22 +1,21 @@
 import React from 'react'
 import Authorization from './authorization/Authorization'
-import { useForm } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
+import { useNavigate } from 'react-router-dom'
 
 const Registration:React.FC = () => {
-	const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm()
-
-	const onSubmit = (data: unknown) => {
+	const nav = useNavigate()
+	
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	const onSubmit = (data: any) => {
 		console.log(data)
 		localStorage.setItem('token', uuidv4())
+		localStorage.setItem('login', data.login)
+		nav('/personalPage')
 	}
 	
 	return (
-		<Authorization handleSubmit={handleSubmit} register={register} errors={errors} onSubmit={onSubmit}/>
+		<Authorization onSubmit={onSubmit}/>
 	)
 }
 

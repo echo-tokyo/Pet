@@ -5,7 +5,16 @@ import './info.scss'
 import { useAppSelector } from '../../store/hooks'
 import GlobalStyles from '../../GlobalStyles'
 
-const Info: React.FC = () => {
+interface IProps {
+	landingData: {
+    id: string;
+    title_desc: string;
+    about_desc: string;
+	}
+}
+
+const Info: React.FC<IProps> = ({landingData}) => {
+
 	const projects = useAppSelector(state => state.projects.projectsList)
 	const stack = useAppSelector(state => state.stack.stackList)
 	
@@ -62,16 +71,14 @@ const Info: React.FC = () => {
 					<div className='web__pic pic'></div>
 					<div className='web__text'>
 						<h2 className='web__text-title'>Веб-разработка</h2>
-						<p className='web__text-subtitle'> Это искусство и наука создания веб-сайтов, которые <br /> помогут тебе осуществить свои идеи в реальность, <br /> сделать твою онлайн-жизнь ярче, эффективнее и <br /> комфортнее.
-						</p>
+						<p className='web__text-subtitle'>{landingData.title_desc}</p>
 					</div>
 				</div>
 				<div className='about'>
 					<div className='about__pic pic'></div>
 					<div className='about__text'>
 						<h2 className='about__text-title'>Обо мне</h2>
-						<p className='about__text-subtitle'>В мире цифрового искусства я рисую веб-сайты, <br /> придавая им форму и жизнь. Моя миссия - создавать <br /> привлекательные и функциональные интерфейсы, <br /> которые вдохновляют и увлекают пользователей.
-						</p>
+						<p className='about__text-subtitle'>{landingData.about_desc}</p>
 					</div>
 				</div>
 			</div>

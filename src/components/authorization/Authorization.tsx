@@ -1,14 +1,17 @@
 import React from 'react'
-import { FieldErrors, FieldValues, UseFormHandleSubmit, UseFormRegister } from 'react-hook-form'
+import { FieldValues, useForm } from 'react-hook-form'
 
 interface IProps {
-	handleSubmit: UseFormHandleSubmit<FieldValues>
-  register: UseFormRegister<FieldValues>
-  errors: FieldErrors<FieldValues>
   onSubmit: (data: FieldValues) => void
 }
 
-const Authorization:React.FC<IProps> = ({handleSubmit, register, errors, onSubmit}) => {
+const Authorization:React.FC<IProps> = ({onSubmit}) => {
+	const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
 	return (
 		<form action="" onSubmit={handleSubmit(onSubmit)}>
 
@@ -16,8 +19,8 @@ const Authorization:React.FC<IProps> = ({handleSubmit, register, errors, onSubmi
 				<input {...register('name')} type="text" placeholder='Имя'/>
 			}
 
-			<input {...register('email', {required: true})} type="text" placeholder='Почта'/>
-			{errors.email && <p>Введите почту</p>}
+			<input {...register('login', {required: true})} type="text" placeholder='Логин'/>
+			{errors.login && <p>Введите логин</p>}
 
 			<input {...register('password', {required: true})} type="password" placeholder='Пароль'/>
 			{errors.password && <p>Введите пароль</p>}

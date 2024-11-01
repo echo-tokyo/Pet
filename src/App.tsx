@@ -9,7 +9,7 @@ const App:React.FC = () => {
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
-      navigate('/landing')
+      navigate('/personalPage')
     } else {
       navigate('/registration')
     }
