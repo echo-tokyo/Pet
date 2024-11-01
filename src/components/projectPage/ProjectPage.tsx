@@ -13,11 +13,15 @@ import 'swiper/css/pagination';
 import 'swiper/css';
 import { Pagination, Navigation } from 'swiper/modules';
 import Footer from '../footer/Footer'
+import landingData from '../../data/landing'
 
 const ProjectPage:React.FC = () => {
 	const {id} = useParams()
-	const projectsList = useAppSelector(state => state.projects.projectsList)
-	const currentProject:IProjects | undefined = projectsList.find(el => el.id === Number(id))
+	console.log(id)
+
+	const projects = useAppSelector(state => state.landing.landingData.projects)
+	const currentProject:IProjects | undefined = projects.find(el => el.id === Number(id))
+
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 	const [isModalDelOpen, setIsModalDelOpen] = useState<boolean>(false)
 	const [isPreview, setIsPreview] = useState<boolean>(false)
@@ -57,6 +61,7 @@ const ProjectPage:React.FC = () => {
 				<ModalProjDel currentProject={currentProject}/>
 			</>
 		)}
+
 		{isPreview && (
 			<>
 			<PreviewStyles />
@@ -69,26 +74,30 @@ const ProjectPage:React.FC = () => {
 			</div>
 			</>
 		)}
+
 		<div className="projectPage">
 			<div className="projectPage__header">
 				<h2>{currentProject?.name}</h2>
-				<Link to={'/'}><p>Вернуться на главную</p></Link>
-				{/* <p>Вернуться на главную</p> */}
+				<Link to={`/landing/${landingData.id}`}><p>Вернуться на главную</p></Link>
 			</div>
+
 			<Swiper slidesPerView={'auto'} spaceBetween={30} pagination={{type: 'fraction',}} navigation={true} modules={[Pagination, Navigation]} className="mySwiper" onClick={() => (isModalOpen === false && isModalDelOpen === false) && setIsPreview(!isPreview)}>
 				<SwiperSlide><img className='projectPage__slide' src={currentProject?.image} alt="" /></SwiperSlide>	
 				{currentProject?.slides?.map((el, index) => <SwiperSlide key={index}><img className='projectPage__slide' src={el}/></SwiperSlide>)}
 			</Swiper>
+
 			<div className="projectPage__desc">
 				<h3>Описание</h3>
 				<p>{currentProject?.desc}</p>
 			</div>
-			{localStorage.getItem('isAdmin') === 'true' && (
+
+			{localStorage.getItem('admin') && 
 				<div className="projectPage__inputs">
 					<input className='modalOpen' type='button' value='добавить слайд' onClick={() => setIsModalOpen(true)}/>
 					<input className='modalOpen' type='button' value='удалить слайд' onClick={() => setIsModalDelOpen(true)}/>
 				</div>
-			)}
+			}
+
 		</div>
 		<Footer />
 		</>

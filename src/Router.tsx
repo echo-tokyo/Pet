@@ -19,7 +19,7 @@ const Router = () => {
 					<Route path='/login' element={<Login />} />
 					<Route path='/personalPage' element={<PersonalPage />} />
 					<Route path='/landing/:id' element={<Landing />} />
-					<Route path='/landing/:landingId/project/:projectId' element={<ProjectPage />}/>
+					<Route path='/landing/project/:id' element={<ProjectPage />}/>
 					<Route path='*' element={<h3 style={{display:'flex', justifyContent:'center', alignItems:'center', height:'100vh'}}>404 Page not found</h3>}/>
 				</Routes>
 			</Fragment>

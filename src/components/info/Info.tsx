@@ -38,10 +38,13 @@ const Info: React.FC = () => {
 
 			<header className='header'>
 				<ul className='header__list'>
+
 					{projects.length > 0 && (<li className='header__list-item'><a href='#projects'>Портфолио</a></li>)}
 					{stack.length > 0 && (<li className='header__list-item'><a href='#stack'>Стэк</a></li>)}
+
 					<li className='header__list-item'><a href='#services'>Услуги</a></li>
-					{localStorage.getItem('isAdmin') === 'true' && (
+
+					{localStorage.getItem('admin') && 
 					<>
 						<li className='header__list-item'> 
 							<p className='modalOpen' onClick={(): void => {
@@ -49,6 +52,7 @@ const Info: React.FC = () => {
 								setIsModalDelOpen(false)
 							}}>Добавить элемент</p>
 						</li>
+
 						<li className='header__list-item'>
 							<p className='modalOpen' onClick={(): void => {
 								setIsModalDelOpen(true)
@@ -56,7 +60,7 @@ const Info: React.FC = () => {
 							}}>Удалить элемент</p>
 						</li>
 					</>
-					)}
+					}
 				</ul>
 			</header>
 			<div className='container'>

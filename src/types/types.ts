@@ -19,3 +19,8 @@ export interface ILanding {
 	projects: IProjects[]
 	stack: IStack[]
 }
+
+export interface IUser {
+	username: string
+	isAdmin: boolean
+}

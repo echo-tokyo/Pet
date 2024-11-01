@@ -12,10 +12,6 @@ const Landing: React.FC = () => {
 	const projects = landingData.projects
 	const stack = landingData.stack
 
-	if (window.location.pathname === '/admin') {
-		localStorage.setItem('isAdmin', 'true')
-	}
-
 	return (
 		<>
 			<Info />
