@@ -1,5 +1,5 @@
 import { useAppDispatch } from '../../../store/hooks'
-import { slideRemove } from '../../../store/projects/projects.slice'
+import { slideRemove } from '../../../store/landing/landing.slice'
 import { IProjects } from '../../../types/types'
 
 interface IProps {

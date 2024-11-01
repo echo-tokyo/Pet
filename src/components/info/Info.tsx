@@ -15,8 +15,8 @@ interface IProps {
 
 const Info: React.FC<IProps> = ({landingData}) => {
 
-	const projects = useAppSelector(state => state.projects.projectsList)
-	const stack = useAppSelector(state => state.stack.stackList)
+	const projects = useAppSelector(state => state.landing.landingData.projects)
+	const stack = useAppSelector(state => state.landing.landingData.stack)
 	
 	document.addEventListener('click', e => {
 		if (e.target instanceof HTMLElement && !e.target?.closest('.modal, .modalOpen')) {

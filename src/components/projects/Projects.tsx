@@ -4,7 +4,7 @@ import { useAppSelector } from '../../store/hooks'
 
 const Projects:React.FC = () => {
 	
-	const projects = useAppSelector(state => state.projects.projectsList)
+	const projects = useAppSelector(state => state.landing.landingData.projects)
 
 	return (
 		<div className="wrapper" id='projects'>

@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../store/hooks'
-import { setProjectsList } from '../../../store/projects/projects.slice'
-import { setStackList } from '../../../store/stack/stack.slice'
 import { IProjects, IStack } from '../../../types/types'
 import '../modal.scss'
+import { setProjectsList, setStackList } from '../../../store/landing/landing.slice'
 
 const Modal: React.FC = () => {
+	
 	const dispatch = useAppDispatch()
-	const projectsList = useAppSelector(state => state.projects.projectsList)
-	const stackList = useAppSelector(state => state.stack.stackList)
+	const projectsList = useAppSelector(state => state.landing.landingData.projects)
+	const stackList = useAppSelector(state => state.landing.landingData.stack)
 	const [selectedOption, setSelectedOption] = useState<string>('project')
 
 	const getSelectedOption = (): void => {

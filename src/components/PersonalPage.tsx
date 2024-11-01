@@ -9,17 +9,19 @@ const PersonalPage = () => {
 	const [landingId] = useState(landingData.id)
 
 	return (
-		<div className="personalPage">
+		<div className='personalPage'>
 			<h2>Моя визитная страница</h2>
-			{landingId ?
-			<>
-			<p onClick={() => nav(`/landing/${landingId}`)}>Просмотреть как гость</p>
-			<p>Редактирова</p>
-			<p>Удалить</p>
-			</>
-			:
-			<h4>Создать</h4>
-			}
+			{landingId ? (
+				<>
+					<p onClick={() => nav(`/landing/${landingId}`)}>
+						Просмотреть как гость
+					</p>
+					<p>Редактирова</p>
+					<p>Удалить</p>
+				</>
+			) : (
+				<h4>Создать</h4>
+			)}
 		</div>
 	)
 }

@@ -1,11 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import projectsReducer from './projects/projects.slice.ts'
-import stackReducer from './stack/stack.slice.ts'
+import landingReducer from './landing/landing.slice.ts'
 
 export const store = configureStore({
 	reducer: {
-		projects: projectsReducer,
-		stack: stackReducer,
+		landing: landingReducer,
 	},
 })
 

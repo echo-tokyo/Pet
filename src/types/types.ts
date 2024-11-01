@@ -11,3 +11,11 @@ export interface IStack {
 	name: string
 	image: string
 }
+
+export interface ILanding {
+	id: string
+	title_desc: string
+	about_desc: string
+	projects: IProjects[]
+	stack: IStack[]
+}

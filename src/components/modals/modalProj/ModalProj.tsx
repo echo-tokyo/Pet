@@ -1,7 +1,7 @@
 import { IProjects } from '../../../types/types'
 import '../modal.scss'
 import { useAppDispatch, useAppSelector } from '../../../store/hooks'
-import { setProjectsList } from '../../../store/projects/projects.slice'
+import { setProjectsList } from '../../../store/landing/landing.slice'
 
 interface IProps  {
 	currentProject: IProjects | undefined
@@ -9,7 +9,7 @@ interface IProps  {
 
 const ModalProj:React.FC<IProps> = ({currentProject}) => {
 	const dispatch = useAppDispatch()
-	const projects = useAppSelector(state => state.projects.projectsList)
+	const projects = useAppSelector(state => state.landing.landingData.projects)
 	
 	const addFile = (e:React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()

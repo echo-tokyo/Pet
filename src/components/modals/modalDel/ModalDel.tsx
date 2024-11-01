@@ -1,13 +1,12 @@
 import { useState } from 'react'
 import '../modal.scss'
 import { useAppDispatch, useAppSelector } from '../../../store/hooks'
-import { setProjectsList } from '../../../store/projects/projects.slice'
-import { setStackList } from '../../../store/stack/stack.slice'
+import { setProjectsList, setStackList } from '../../../store/landing/landing.slice'
 
 const ModalDel = () => {
 	const dispatch = useAppDispatch()
-	const projects = useAppSelector(state => state.projects.projectsList)
-	const stack = useAppSelector(state => state.stack.stackList)
+	const projects = useAppSelector(state => state.landing.landingData.projects)
+	const stack = useAppSelector(state => state.landing.landingData.stack)
 	const [selectedOption, setSelectedOption] = useState<string>('project')
 
 	const getSelectedOption = (): void => {

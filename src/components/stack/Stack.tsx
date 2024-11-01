@@ -3,7 +3,7 @@ import './stack.scss'
 import StackItem from './stackItem/StackItem'
 
 const Stack:React.FC = () => {
-	const stackList = useAppSelector(state => state.stack.stackList)
+	const stackList = useAppSelector(state => state.landing.landingData.stack)
 	return (
 		<div className="stack" id='stack'>
 			<div className="stack__text">
