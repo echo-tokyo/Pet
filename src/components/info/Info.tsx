@@ -5,18 +5,11 @@ import './info.scss'
 import { useAppSelector } from '../../store/hooks'
 import GlobalStyles from '../../GlobalStyles'
 
-interface IProps {
-	landingData: {
-    id: string;
-    title_desc: string;
-    about_desc: string;
-	}
-}
+const Info: React.FC = () => {
 
-const Info: React.FC<IProps> = ({landingData}) => {
-
-	const projects = useAppSelector(state => state.landing.landingData.projects)
-	const stack = useAppSelector(state => state.landing.landingData.stack)
+	const landingData = useAppSelector(state => state.landing.landingData)
+	const projects = landingData.projects
+	const stack = landingData.stack
 	
 	document.addEventListener('click', e => {
 		if (e.target instanceof HTMLElement && !e.target?.closest('.modal, .modalOpen')) {

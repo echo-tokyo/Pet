@@ -3,7 +3,9 @@ import './stack.scss'
 import StackItem from './stackItem/StackItem'
 
 const Stack:React.FC = () => {
-	const stackList = useAppSelector(state => state.landing.landingData.stack)
+
+	const stack = useAppSelector(state => state.landing.landingData.stack)
+
 	return (
 		<div className="stack" id='stack'>
 			<div className="stack__text">
@@ -11,7 +13,7 @@ const Stack:React.FC = () => {
 				<p className="stack__text-subtitle">Основной набор инструментов, который помогает мне <br /> в разработке веб-приложений</p>
 			</div>
 			<div className="stack__items">
-				{stackList.map(el => <StackItem key={el.id} tech={el}/>)}
+				{stack.map(el => <StackItem key={el.id} tech={el}/>)}
 			</div>
 		</div>
 	)

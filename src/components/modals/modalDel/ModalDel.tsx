@@ -5,8 +5,11 @@ import { setProjectsList, setStackList } from '../../../store/landing/landing.sl
 
 const ModalDel = () => {
 	const dispatch = useAppDispatch()
-	const projects = useAppSelector(state => state.landing.landingData.projects)
-	const stack = useAppSelector(state => state.landing.landingData.stack)
+
+	const landingData = useAppSelector(state => state.landing.landingData)
+	const projects = landingData.projects
+	const stack = landingData.stack
+	
 	const [selectedOption, setSelectedOption] = useState<string>('project')
 
 	const getSelectedOption = (): void => {

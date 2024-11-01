@@ -7,8 +7,11 @@ import { setProjectsList, setStackList } from '../../../store/landing/landing.sl
 const Modal: React.FC = () => {
 	
 	const dispatch = useAppDispatch()
-	const projectsList = useAppSelector(state => state.landing.landingData.projects)
-	const stackList = useAppSelector(state => state.landing.landingData.stack)
+
+	const landingData = useAppSelector(state => state.landing.landingData)
+	const projects = landingData.projects
+	const stack = landingData.stack
+
 	const [selectedOption, setSelectedOption] = useState<string>('project')
 
 	const getSelectedOption = (): void => {
@@ -31,10 +34,12 @@ const Modal: React.FC = () => {
 			desc: descInp.value,
 			image: '',
 		}
+
 		reader.onload = (): void => {
 			formData.image = reader.result as string
-			dispatch(setProjectsList([...projectsList, formData]))
+			dispatch(setProjectsList([...projects, formData]))
 		}
+
 		if (imageInp.files && imageInp.files[0]) {
 			reader.readAsDataURL(imageInp.files[0])
 		}
@@ -53,8 +58,9 @@ const Modal: React.FC = () => {
 
 		reader.onload = (): void => {
 			formData.image = reader.result as string
-			dispatch(setStackList([...stackList, formData]))
+			dispatch(setStackList([...stack, formData]))
 		}
+		
 		if (imageInp.files && imageInp.files[0]) {
 			reader.readAsDataURL(imageInp.files[0])
 		}
