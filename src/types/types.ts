@@ -3,7 +3,7 @@ export interface IProjects {
 	owner: string
 	name: string
 	desc: string
-	slides?: ISlide[]
+	slides: ISlide[]
 }
 
 export interface ISlide{

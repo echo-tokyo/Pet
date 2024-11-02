@@ -79,9 +79,13 @@ const ProjectPage:React.FC = () => {
 				<Link to={`/landing/${currentProject?.owner}`}><p>Вернуться на главную</p></Link>
 			</div>
 
-			<Swiper slidesPerView={'auto'} spaceBetween={30} pagination={{type: 'fraction',}} navigation={true} modules={[Pagination, Navigation]} className="mySwiper" onClick={() => (isModalOpen === false && isModalDelOpen === false) && setIsPreview(!isPreview)}>
-				<SwiperSlide><img className='projectPage__slide' src={currentProject?.image} alt="" /></SwiperSlide>	
-				{currentProject?.slides?.map((el, index) => <SwiperSlide key={index}><img className='projectPage__slide' src={el}/></SwiperSlide>)}
+			<Swiper slidesPerView={'auto'} spaceBetween={30} pagination={{type: 'fraction',}} navigation={true} modules={[Pagination, Navigation]} className="mySwiper" 
+			onClick={() => (isModalOpen === false && isModalDelOpen === false) && setIsPreview(!isPreview)}>
+
+				<SwiperSlide><img className='projectPage__slide' src={currentProject?.slides[0].slide} alt="" /></SwiperSlide>	
+				
+				{currentProject?.slides?.map((el, index) => 
+				<SwiperSlide key={index}><img className='projectPage__slide' src={el.slide}/></SwiperSlide>)}
 			</Swiper>
 
 			<div className="projectPage__desc">

@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../../store/hooks'
 import { IProjects, IStack } from '../../../types/types'
 import '../modal.scss'
 import { setProjectsList, setStackList } from '../../../store/landing/landing.slice'
+// FIXME: оптимизировать повторяющийся код
 
 const Modal: React.FC = () => {
 	
