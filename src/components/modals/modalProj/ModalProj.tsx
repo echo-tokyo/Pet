@@ -15,13 +15,17 @@ const ModalProj:React.FC<IProps> = ({currentProject}) => {
 		e.preventDefault()
 		const imageInp = document.querySelector('#image') as HTMLInputElement
 		const reader = new FileReader()
+
 		reader.onload = (): void => {
 			dispatch(setProjectsList(projects.map(el => {
-				if(el.id === currentProject?.id){
-					return {
-						...el,
-						slides: [...(Array.isArray(el.slides) ? el.slides : []), reader.result as string]
-					}
+				if (el.id === currentProject?.id) {
+						return {
+								...el,
+								slides: [
+										...(Array.isArray(el.slides) ? el.slides : []),
+										{ id: el.slides.length + 1, slide: reader.result as string }
+								]
+						}
 				}
 				return el
 			})))
