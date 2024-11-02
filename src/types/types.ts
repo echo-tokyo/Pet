@@ -3,8 +3,12 @@ export interface IProjects {
 	owner: string
 	name: string
 	desc: string
-	image: string 
-	slides?:  string[] | undefined
+	slides?: ISlide[]
+}
+
+export interface ISlide{
+	id: number
+	slide: string
 }
 
 export interface IStack {
@@ -14,7 +18,8 @@ export interface IStack {
 }
 
 export interface ILanding {
-	id: string
+	id: number
+	owner: string
 	title_desc: string
 	about_desc: string
 	projects: IProjects[]

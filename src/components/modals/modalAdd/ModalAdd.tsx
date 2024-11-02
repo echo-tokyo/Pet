@@ -30,13 +30,14 @@ const Modal: React.FC = () => {
 		const reader = new FileReader()
 		const formData: IProjects = {
 			id: Date.now(),
+			owner: landingData.owner,
 			name: nameInp.value,
 			desc: descInp.value,
-			image: '',
+			slides: [],
 		}
 
 		reader.onload = (): void => {
-			formData.image = reader.result as string
+			formData.slides = [{id: Date.now(), slide: reader.result}] as [{id: number, slide: string}]
 			dispatch(setProjectsList([...projects, formData]))
 		}
 

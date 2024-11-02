@@ -1,7 +1,8 @@
 import { ILanding } from '../types/types'
 
 export const landingData: ILanding = {
-	id: 'user',
+	id: 1,
+	owner: 'user',
 	title_desc: 'Это искусство и наука создания веб-сайтов, которые помогут тебе осуществить свои идеи в реальность, сделать твою онлайн-жизнь ярче, эффективнее и комфортнее.',
 	about_desc: 'В мире цифрового искусства я рисую веб-сайты, придавая им форму и жизнь. Моя миссия - создавать привлекательные и функциональные интерфейсы, которые вдохновляют и увлекают пользователей.',
 	projects: [
@@ -10,43 +11,42 @@ export const landingData: ILanding = {
 			owner: 'user',
 			name: 'Cloud Strorage',
 			desc: 'Крутой проект облачное хранилище',
-			image: '/public/cloudstorage.png'
+			slides: [{id: 1, slide:'/public/cloudstorage.png'}]
 		},
 		{
 			id: 2,
 			owner: 'user',
 			name: 'Realty',
 			desc: 'Крутой проект недвижка',
-			image: '/public/интронедвижка.png',
-			slides: ['../../public/квиз недвижка.png', '../../public/квиз пройден недвижка.png', '../../public/квиз финал недвижка.png']
+			slides: [{id: 1, slide: '/public/интронедвижка.png'}, {id: 2, slide: '../../public/квиз недвижка.png'}, {id: 3,slide :'../../public/квиз пройден недвижка.png'}, {id: 3, slide: '../../public/квиз финал недвижка.png'}]
 		},
 		{
 			id: 3,
 			owner: 'user',
 			name: 'Friend Auto',
 			desc: 'Крутой проект френдавто',
-			image: '/public/френдавто.png'
+			slides: [{id: 1, slide:'/public/френдавто.png'}]
 		},
 		{
 			id: 4,
 			owner: 'user',
 			name: 'Lorem',
 			desc: 'Крутой проект lorem',
-			image: '/public/визитка.png'
+			slides: [{id: 1, slide: '/public/визитка.png'}]
 		},
 		{
 			id: 5,
 			owner: 'user',
 			name: 'Pet',
 			desc: 'Крутой проект pet',
-			image: '/public/pet.png'
+			slides: [{id: 1, slide: '/public/pet.png'}]
 		},
 		{
 			id: 6,
 			owner: 'user',
 			name: 'Крутой проект Vortex',
 			desc: 'Крутой проект Pet',
-			image: '/public/Frame4.jpg'
+			slides: [{id: 1, slide: '/public/Frame4.jpg'}]
 		}
 	],
 	stack: [
